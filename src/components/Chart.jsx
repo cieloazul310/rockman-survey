@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
-import { scaleBand, scaleOrdinal } from 'd3-scale';
-import { schemeCategory10 } from 'd3-scale-chromatic';
+import { scaleBand } from 'd3-scale';
 import { max as d3max } from 'd3-array';
 
 import Gumi from './Gumi';
-
-import {
-  sortDefault,
-  sortByYear,
-  sortByArtist,
-  sortByNation
-} from '../sortFunctions';
 
 class Chart extends Component {
   constructor(props) {
@@ -65,12 +57,7 @@ class Chart extends Component {
       ])
       .padding(0.2);
 
-    this.fillScale = scaleOrdinal(schemeCategory10).domain([
-      'US',
-      'UK',
-      'JPN',
-      'FR'
-    ]);
+    this.fillScale = this.props.fillScale;
   }
 
   componentDidMount() {}
