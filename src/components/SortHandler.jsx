@@ -20,7 +20,7 @@ const SortHandler = ({
   onSortRuleClick,
   onSortTypeClick
 }) => (
-  <div style={{ textAlign: 'right' }}>
+  <div style={{ textAlign: 'right', paddingBottom: '.5em' }}>
     <ButtonGroup>
       <DropdownButton bsSize="small" title={sortType.label} id="sortType">
         {sortItems.map((d, i) => (

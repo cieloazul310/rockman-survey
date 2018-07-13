@@ -10,23 +10,22 @@ import {
 import FilterPanel from './FilterPanel';
 import About from './About';
 
-const SidePanel = ({
-  programs,
-  selected,
-  byNation,
-  byArtist,
-  byCorner,
-  onFilterSelected
-}) => (
+const SidePanel = ({ tributes, selected, onFilterSelected, fillScale }) => (
   <Col sm={12} md={4} style={{ height: '100%' }}>
     <Tabs defaultActiveKey={1} animation={true} id="side-panel">
       <Tab eventKey={1} title="Programs">
         <h3 id="programs">
-          Programs <Badge>{programs.length}</Badge>
+          Programs <Badge>{tributes.week.length}</Badge>
         </h3>
-        <div style={{ height: window.innerHeight, overflowX: 'scroll' }}>
+        <div
+          style={{
+            height: window.innerHeight,
+            overflowX: 'hidden',
+            overflowY: 'scroll'
+          }}
+        >
           <ListGroup>
-            {programs.map((d, i) => (
+            {tributes.week.map((d, i) => (
               <ListGroupItem
                 key={i}
                 active={selected.key === 'week' && selected.label === d['week']}
@@ -46,27 +45,29 @@ const SidePanel = ({
         <FilterPanel
           id="artists"
           title="Artists"
-          data={byArtist}
+          data={tributes.artist}
           label="artist"
           selected={selected}
           onClick={onFilterSelected}
+          color={{ scale: fillScale, key: 'nation' }}
         />
       </Tab>
       <Tab eventKey={3} title="Countries">
         <FilterPanel
           id="countries"
           title="Countries"
-          data={byNation}
+          data={tributes.nation}
           label="nation"
           selected={selected}
           onClick={onFilterSelected}
+          color={{ scale: fillScale, key: 'nation' }}
         />
       </Tab>
       <Tab eventKey={4} title="Corner">
         <FilterPanel
           id="corner"
           title="Corner"
-          data={byCorner}
+          data={tributes.corner}
           label="corner"
           selected={selected}
           onClick={onFilterSelected}

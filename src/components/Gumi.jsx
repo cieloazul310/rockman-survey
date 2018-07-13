@@ -11,22 +11,24 @@ const Gumi = ({ d, index, selectedTunes, xScale, yScale, fillScale }) =>
       }
     >
       <rect
+        className="gumi"
         y={yScale(index + 1)}
         rx={2}
         ry={2}
         width={xScale.bandwidth()}
         height={yScale.bandwidth()}
-        fill={fillScale(d.nation)}
+        style={{fill:fillScale(d.nation)}}
       />
     </OverlayTrigger>
   ) : (
     <rect
+      className="gumi"
       y={yScale(index + 1)}
       rx={2}
       ry={2}
       width={xScale.bandwidth()}
       height={yScale.bandwidth()}
-      fill="silver"
+      style={{fill: "#d7d7d7"}}
     />
   );
 

@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
+import { Checkbox } from 'react-bootstrap';
 import { scaleBand } from 'd3-scale';
 import { max as d3max } from 'd3-array';
 
 import Gumi from './Gumi';
+
+const GumiChecker = ({ active, onClick }) => (
+  <div style={{textAlign: 'right'}}>
+    <Checkbox
+      checked={active}
+      onClick={() => {
+        onClick();
+      }}
+    >
+      {'漫遊前の一曲を表示する'}
+    </Checkbox>
+  </div>
+);
 
 class Chart extends Component {
   constructor(props) {
@@ -17,8 +31,11 @@ class Chart extends Component {
         right: 10,
         bottom: 28,
         left: 10
-      }
+      },
+      showOverture: false
     };
+
+    this.sortGumis = this.sortGumis.bind(this);
 
     const years = this.props.playlist
       .map((d, i) => parseInt(d.year, 10))
@@ -56,11 +73,25 @@ class Chart extends Component {
         this.state.padding.top
       ])
       .padding(0.2);
-
-    this.fillScale = this.props.fillScale;
   }
 
+  fillScale = this.props.fillScale;
+
   componentDidMount() {}
+
+  sortGumis(a, b) {
+    const { selected } = this.props;
+    const { key, label, tunes } = selected;
+    if (key !== null && label !== null) {
+      if (tunes.indexOf(a.id) >= 0) {
+        return -1;
+      } else {
+        return 1;
+      }
+    } else {
+      return 0;
+    }
+  }
 
   render() {
     return (
@@ -85,7 +116,12 @@ class Chart extends Component {
                 <g transform={`translate(${this.xScale(d.year)}, 0)`} key={i}>
                   {d.tunes.length
                     ? d.tunes
-                        .filter(d => d.corner !== '漫遊前の一曲')
+                        .filter(
+                          d =>
+                            this.state.showOverture ||
+                            d.corner !== '漫遊前の一曲'
+                        )
+                        .sort(this.sortGumis)
                         .map((v, index) => (
                           <Gumi
                             d={v}
@@ -94,7 +130,7 @@ class Chart extends Component {
                             xScale={this.xScale}
                             yScale={this.yScale}
                             fillScale={this.fillScale}
-                            selectedTunes={this.props.selectedTunes}
+                            selectedTunes={this.props.selected.tunes}
                           />
                         ))
                     : null}
@@ -119,6 +155,14 @@ class Chart extends Component {
             ))}
           </g>
         </svg>
+        <GumiChecker
+          active={this.state.showOverture}
+          onClick={() => {
+            this.setState(prev => ({
+              showOverture: !prev.showOverture
+            }));
+          }}
+        />
       </div>
     );
   }
