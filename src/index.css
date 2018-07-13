@@ -13,9 +13,38 @@ body {
   font-family: sans-serif;
 }
 
+@font-face {
+  font-family: 'Yu Gothic';
+  src: local('Yu Gothic Medium');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'Yu Gothic';
+  src: local('Yu Gothic Medium');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Yu Gothic';
+  src: local('Yu Gothic Medium');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Yu Gothic';
+  src: local('Yu Gothic Medium');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Yu Gothic';
+  src: local('Yu Gothic Bold');
+  font-weight: bold;
+}
+
 #root {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: /*-apple-system, BlinkMacSystemFont, 'Helvetica Neue',*/
+    'Yu Gothic UI', 'Original Yu Gothic', 'Yu Gothic', YuGothic, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Verdana, Meiryo,
+    sans-serif;
 }

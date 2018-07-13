@@ -1,11 +1,11 @@
 import React from 'react';
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem, Glyphicon } from 'react-bootstrap';
 
 const AppHeader = () => (
-  <Navbar collapseOnSelect fixedTop>
+  <Navbar collapseOnSelect fixedTop style={{backgroundColor: '#fff', boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.4)'}}>
     <Navbar.Header>
       <Navbar.Brand>
-        ロック大陸測量部
+        <Glyphicon glyph="globe" /> ロック大陸測量部
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>

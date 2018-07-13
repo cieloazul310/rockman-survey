@@ -3,6 +3,8 @@ import { csv as d3csv } from 'd3-fetch';
 
 import AppHeader from './components/AppHeader';
 import AppMain from './components/AppMain';
+import Footer from './components/Footer';
+import ScrollUp from './components/ScrollUp';
 import playlist from './data/playlist-playlist.csv';
 import programs from './data/programs-programs.csv';
 import './App.css';
@@ -13,10 +15,7 @@ class App extends Component {
     this.state = {
       programs: null,
       playlist: null,
-      selected: { key: null, label: null, tunes: [] }
     };
-
-    this.onFilterSelected = this.onFilterSelected.bind(this);
   }
 
   componentDidMount() {
@@ -36,17 +35,6 @@ class App extends Component {
     });
   }
 
-  onFilterSelected(d, label) {
-    const tunes = d.tunes.map(v => v.id);
-    const neu = { key: label, label: d[label], tunes };
-    this.setState(prev => ({
-      selected:
-        prev.selected.key !== label || prev.selected.label !== d[label]
-          ? neu
-          : { key: null, label: null, tunes: [] }
-    }));
-  }
-
   render() {
     return (
       <div>
@@ -61,6 +49,8 @@ class App extends Component {
             />
           ) : null}
         </div>
+        {ScrollUp}
+        {Footer}
       </div>
     );
   }

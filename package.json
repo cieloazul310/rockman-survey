@@ -1,6 +1,7 @@
 {
-  "name": "rock-man",
+  "name": "rockman-survey",
   "version": "0.1.0",
+  "homepage": "https://cieloazul310.github.io/rockman-survey",
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
@@ -9,12 +10,18 @@
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "react-persist": "^1.0.2",
+    "react-scripts": "1.1.4",
+    "react-scroll-up": "^1.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }
