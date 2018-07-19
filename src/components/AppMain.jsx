@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
-import Legends from './Legends';
-import Chart from './Chart';
-import Playlist from './Playlist';
-import SidePanel from './SidePanel';
-import AdBox from './AdBox';
+import { Tab } from 'react-bootstrap';
+import AppNavbar from './AppNavbar';
+import Apps from './Apps';
 
 import { scaleOrdinal } from 'd3-scale';
 import { schemeCategory10 } from 'd3-scale-chromatic';
@@ -12,6 +9,11 @@ import { sortByArtist } from '../sortFunctions';
 import tribution from '../tribution';
 
 class AppMain extends Component {
+  /** Props: playlist, programs
+    * State: selected, favs
+    * Const: tributes, fillScale
+    * func: onFilterSelected, onFavClick, showFavs
+    */
   constructor(props) {
     super(props);
 
@@ -48,15 +50,21 @@ class AppMain extends Component {
   );
 
   componentDidMount() {
-    // hash値を解析してsetStateする
-    this.parseHash();
-
     // localStorageからfavsを取得する
     const storageFavs = localStorage.getItem('rockman-favs');
     if (storageFavs) {
-      this.setState({
-        favs: JSON.parse(storageFavs)
-      });
+      this.setState(
+        {
+          favs: JSON.parse(storageFavs)
+        },
+        () => {
+          // hash値を解析してsetStateする
+          this.parseHash();
+        }
+      );
+    } else {
+      // hash値を解析してsetStateする
+      this.parseHash();
     }
   }
 
@@ -79,21 +87,24 @@ class AppMain extends Component {
 
           window.history.pushState(this.state, '', hash);
         } else {
-          window.history.pushState(this.state, '', '#');
+          window.history.pushState(this.state, '', '/');
         }
       }
     );
   }
 
   onFavClick(d) {
-    this.setState(prev => ({
-      favs:
-        prev.favs.indexOf(d.id) >= 0
-          ? prev.favs.filter(v => d.id !== v)
-          : [...prev.favs, d.id]
-    }), () => {
-      localStorage.setItem('rockman-favs', JSON.stringify(this.state.favs));
-    });
+    this.setState(
+      prev => ({
+        favs:
+          prev.favs.indexOf(d.id) >= 0
+            ? prev.favs.filter(v => d.id !== v)
+            : [...prev.favs, d.id]
+      }),
+      () => {
+        localStorage.setItem('rockman-favs', JSON.stringify(this.state.favs));
+      }
+    );
   }
 
   showFavs() {
@@ -119,7 +130,13 @@ class AppMain extends Component {
 
             window.history.pushState(this.state, '', hash);
           } else {
-            window.history.pushState(this.state, '', '#');
+            window.history.pushState(
+              this.state,
+              `${this.state.selected.key}: ${decodeURI(
+                this.state.selected.label
+              )}`,
+              '/'
+            );
           }
         }
       );
@@ -133,77 +150,55 @@ class AppMain extends Component {
 
       if (parts.length === 1 && parts[0] === 'favs') {
         this.setState({
-          key: 'favs',
-          label: 'favs',
-          tunes: this.state.favs
+          selected: {
+            key: 'favs',
+            label: 'favs',
+            tunes: this.state.favs
+          }
         });
       } else if (parts.length === 2) {
-        const neu = {key: parts[0], label: parts[1], tunes: this.tributes[parts[0]].filter(d => d[parts[0]] === decodeURI(parts[1]))[0].tunes.map(d => d.id)};
+        const neu = {
+          key: parts[0],
+          label: parts[1],
+          tunes: this.tributes[parts[0]]
+            .filter(d => d[parts[0]] === decodeURI(parts[1]))[0]
+            .tunes.map(d => d.id)
+        };
         this.setState({
           selected: neu
         });
       }
-
     }
   }
 
   render() {
     const selected = this.state.selected;
+    /*
     const playlist = selected.tunes.length
       ? this.props.playlist.filter(d => selected.tunes.indexOf(d.id) >= 0)
       : this.props.playlist;
+      */
+    const playlist = this.props.playlist.map(d => ({
+      ...d,
+      fav: this.state.favs.indexOf(d.id) >= 0,
+      selected: this.state.selected.tunes.indexOf(d.id) >= 0
+    }));
+
+    const selectedLength = selected.key !== null ? selected.tunes.length : playlist.length;
 
     return (
-      <Grid>
-        <Row>
-          <Col sm={12} md={8} style={{ height: '100%' }}>
-            <Legends
-              data={this.tributes.nation}
-              label="nation"
-              scale={this.fillScale}
-              filter={(d, i, arr) =>
-                arr
-                  .sort((a, b) => b.tunes.length - a.tunes.length)
-                  .map(v => v.nation)
-                  .indexOf(d.nation) < 5
-              }
-            />
-            <Chart
-              playlist={playlist}
-              selected={selected}
-              fillScale={this.fillScale}
-            />
-            <div>
-              <button
-                onClick={() => {
-                  this.showFavs();
-                }}
-              >
-                Fav Filter
-              </button>
-            </div>
-            <Playlist
-              playlist={playlist}
-              fillScale={this.fillScale}
-              favs={this.state.favs}
-              onFavClick={this.onFavClick}
-            />
-          </Col>
-          <SidePanel
-            tributes={this.tributes}
-            selected={selected}
-            onFilterSelected={this.onFilterSelected}
+      <Tab.Container id="rockman-menu" defaultActiveKey={2.1}>
+        <div>
+          <AppNavbar tributes={this.tributes} showFavs={this.showFavs} state={this.state} playlistLength={selectedLength} />
+          <Apps playlist={playlist}
+            selected={this.state.selected}
+            favs={this.state.favs}
             fillScale={this.fillScale}
-          />
-        </Row>
-        <Row>
-          <Col sm={12}>
-            <div style={{ marginTop: '2em' }}>
-              <AdBox />
-            </div>
-          </Col>
-        </Row>
-      </Grid>
+            onFavClick={this.onFavClick}
+            onFilterSelected={this.onFilterSelected}
+            tributes={this.tributes} />
+        </div>
+      </Tab.Container>
     );
   }
 }

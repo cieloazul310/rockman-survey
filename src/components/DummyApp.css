@@ -1,0 +1,29 @@
+li.nav-larger {
+  padding: 0
+}
+
+li.nav-larger > a {
+  color: black;
+  height: 50px;
+  padding: 15px 0;
+  box-sizing: border-box;
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  transition: color .25s, border .25s;
+}
+
+li.nav-larger > a:hover {
+  background-color: inherit;
+  border-bottom: 2px solid skyblue;
+}
+
+li.nav-larger > a:focus {
+  background-color: inherit;
+}
+
+li.nav-larger.active > a {
+  border-bottom: 2px solid royalblue;
+}
+
+.dropdown-menu > li > a {
+  padding: 10px 16px;
+}
