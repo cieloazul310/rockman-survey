@@ -4,16 +4,15 @@ import {
   Badge,
   ListGroup,
   ListGroupItem,
-  Tabs,
   Tab
 } from 'react-bootstrap';
 import FilterPanel from './FilterPanel';
 import About from './About';
 
 const SidePanel = ({ tributes, selected, onFilterSelected, fillScale }) => (
-  <Col sm={12} md={4} style={{ height: '100%' }}>
-    <Tabs defaultActiveKey={1} animation={true} id="side-panel">
-      <Tab eventKey={1} title="Programs">
+  <Col xsHidden sm={4} style={{ height: '100%' }}>
+    <Tab.Content animation>
+      <Tab.Pane eventKey={2.1} title="Programs">
         <h3 id="programs">
           Programs <Badge>{tributes.week.length}</Badge>
         </h3>
@@ -40,8 +39,8 @@ const SidePanel = ({ tributes, selected, onFilterSelected, fillScale }) => (
             ))}
           </ListGroup>
         </div>
-      </Tab>
-      <Tab eventKey={2} title="Artists">
+      </Tab.Pane>
+      <Tab.Pane eventKey={2.2} title="Artists">
         <FilterPanel
           id="artists"
           title="Artists"
@@ -51,8 +50,8 @@ const SidePanel = ({ tributes, selected, onFilterSelected, fillScale }) => (
           onClick={onFilterSelected}
           color={{ scale: fillScale, key: 'nation' }}
         />
-      </Tab>
-      <Tab eventKey={3} title="Countries">
+      </Tab.Pane>
+      <Tab.Pane eventKey={2.3} title="Countries">
         <FilterPanel
           id="countries"
           title="Countries"
@@ -62,8 +61,8 @@ const SidePanel = ({ tributes, selected, onFilterSelected, fillScale }) => (
           onClick={onFilterSelected}
           color={{ scale: fillScale, key: 'nation' }}
         />
-      </Tab>
-      <Tab eventKey={4} title="Corner">
+      </Tab.Pane>
+      <Tab.Pane eventKey={2.4} title="Corner">
         <FilterPanel
           id="corner"
           title="Corner"
@@ -72,11 +71,14 @@ const SidePanel = ({ tributes, selected, onFilterSelected, fillScale }) => (
           selected={selected}
           onClick={onFilterSelected}
         />
-      </Tab>
-      <Tab eventKey={5} title="About">
+      </Tab.Pane>
+      <Tab.Pane eventKey={2.5} title="favs">
+        <h3>favs</h3>
+      </Tab.Pane>
+      <Tab.Pane eventKey={3} title="About">
         {About}
-      </Tab>
-    </Tabs>
+      </Tab.Pane>
+    </Tab.Content>
   </Col>
 );
 

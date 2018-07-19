@@ -9,16 +9,29 @@ const FilterPanelItem = ({ d, i, label, selected, onClick, color }) => (
     }}
   >
     {color ? (
-      <span style={{ color: color.scale(d[color.key]) }}>● </span>
+      <span style={{ color: /*color.scale(d[color.key])*/ color(d) }}>● </span>
     ) : null}
     {d[label]}
     <Badge>{d.tunes.length}</Badge>
   </ListGroupItem>
 );
 
-const FilterPanelStyle = { maxHeight: window.innerHeight - 150, overflowX: 'hidden', overflowY: 'scroll' };
+const FilterPanelStyle = {
+  maxHeight: window.innerHeight - 150,
+  overflowX: 'hidden',
+  overflowY: 'scroll'
+};
 
-const FilterPanel = ({ id, data, title, label, onClick, selected, color, isMobile }) => (
+const FilterPanel = ({
+  id,
+  data,
+  title,
+  label,
+  onClick,
+  selected,
+  color,
+  isMobile
+}) => (
   <div id={id}>
     <h3>
       {title + ' '}

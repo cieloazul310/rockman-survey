@@ -1,8 +1,23 @@
 import React from 'react';
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem, Glyphicon } from 'react-bootstrap';
+import {
+  Nav,
+  Navbar,
+  NavItem,
+  NavDropdown,
+  MenuItem,
+  Glyphicon,
+  Badge
+} from 'react-bootstrap';
 
-const AppHeader = () => (
-  <Navbar collapseOnSelect fixedTop style={{backgroundColor: '#fff', boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.4)'}}>
+const AppHeader = ({ selected, favs, showFavs }) => (
+  <Navbar
+    collapseOnSelect
+    fixedTop
+    style={{
+      backgroundColor: '#fff',
+      boxShadow: '0px 0px 2px rgba(0, 0, 0, 0.4)'
+    }}
+  >
     <Navbar.Header>
       <Navbar.Brand>
         <Glyphicon glyph="globe" /> ロック大陸測量部
@@ -11,26 +26,40 @@ const AppHeader = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} href="#programs">
-          Programs
+        <NavItem eventKey={6}>
+          About
         </NavItem>
-        <NavItem eventKey={2} href="#artists">
-          Artists
+        <NavItem
+          eventKey={5}
+          onSelect={() => {
+            showFavs();
+          }}
+          active={selected.key === 'favs'}
+        >
+          <Glyphicon
+            glyph="star"
+            style={{ color: selected.key === 'favs' ? 'gold' : 'silver' }}
+          />favs <Badge>{favs.length}</Badge>
         </NavItem>
-        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.3}>Separated link</MenuItem>
-        </NavDropdown>
       </Nav>
       <Nav pullRight>
-        <NavItem eventKey={1} href="http://www.tfm.co.jp/manyuki/">
-          番組HP
+        <NavItem eventKey={1}>
+          Programs <Badge>10</Badge>
         </NavItem>
-        <NavItem eventKey={2} href="https://www.youtube.com/playlist?list=PLGqFsFmePh4xxQjnjCpBLYsJY-VecUzdJ">
-          YouTube再生リスト
+        <NavItem
+          eventKey={2}
+        >
+          Artists <Badge>10</Badge>
+        </NavItem>
+        <NavItem
+          eventKey={3}
+        >
+          Countries <Badge>10</Badge>
+        </NavItem>
+        <NavItem
+          eventKey={4}
+        >
+          Corner <Badge>10</Badge>
         </NavItem>
       </Nav>
     </Navbar.Collapse>
