@@ -8,6 +8,7 @@ import Countries from './Panes/Countries';
 import Corners from './Panes/Corners';
 import Favs from './Panes/Favs';
 import About from './Panes/About';
+import AdBox from './AdBox';
 
 const AppForMobile = ({
   playlist,
@@ -76,6 +77,7 @@ const AppForMobile = ({
           <About />
         </Tab.Pane>
       </Tab.Content>
+      <AdBox />
     </Col>
   </Row>
 );
@@ -92,7 +94,7 @@ const AppForDesktop = ({
   removeSelected
 }) => (
   <Row>
-    <Col xs={8} xsHidden sm={8}>
+    <Col sm={8}>
       <Playlist
         playlist={playlist}
         playlistLength={playlistLength}
@@ -104,7 +106,7 @@ const AppForDesktop = ({
         removeSelected={removeSelected}
       />
     </Col>
-    <Col xs={4} xsHidden sm={4}>
+    <Col sm={4}>
       <Tab.Content animation>
         <Tab.Pane eventKey={2.1}>
           <Programs
@@ -143,6 +145,7 @@ const AppForDesktop = ({
           <About />
         </Tab.Pane>
       </Tab.Content>
+      <AdBox />
     </Col>
   </Row>
 );
