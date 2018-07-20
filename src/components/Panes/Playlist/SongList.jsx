@@ -24,7 +24,7 @@ const Fav = ({ d, onFavClick }) => (
 );
 
 const PlayTube = ({ d }) => (
-  <span style={{ marginRight: '.8em' }}>
+  <span className="playtube">
     <a href={`https://youtu.be/${d.youtube}`} target="_blank" rel="noopener noreferrer" title="Watch on Youtube">
       <Glyphicon glyph="music" />
     </a>
@@ -32,7 +32,7 @@ const PlayTube = ({ d }) => (
 );
 
 const Buttons = ({ d, onFavClick }) => (
-  <div style={{ position: 'absolute', right: '1em', top: '1em' }}>
+  <div className="playlist-item-buttons">
     {d.youtube ? <PlayTube d={d} /> : null}
     <Fav d={d} onFavClick={onFavClick} />
   </div>

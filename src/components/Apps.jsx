@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Grid, Row, Col, Tab } from 'react-bootstrap';
 
 import Playlist from './Panes/Playlist';
@@ -6,10 +6,13 @@ import Programs from './Panes/Programs';
 import Artists from './Panes/Artists';
 import Countries from './Panes/Countries';
 import Corners from './Panes/Corners';
+import Favs from './Panes/Favs';
 import About from './Panes/About';
 
 const AppForMobile = ({
   playlist,
+  playlistLength,
+  removeSelected,
   selected,
   favs,
   fillScale,
@@ -23,6 +26,8 @@ const AppForMobile = ({
         <Tab.Pane eventKey={1}>
           <Playlist
             playlist={playlist}
+            playlistLength={playlistLength}
+            removeSelected={removeSelected}
             selected={selected}
             favs={favs}
             fillScale={fillScale}
@@ -64,6 +69,9 @@ const AppForMobile = ({
             isMobile
           />
         </Tab.Pane>
+        <Tab.Pane eventKey={2.5}>
+          <Favs />
+        </Tab.Pane>
         <Tab.Pane eventKey={3}>
           <About />
         </Tab.Pane>
@@ -74,22 +82,26 @@ const AppForMobile = ({
 
 const AppForDesktop = ({
   playlist,
+  playlistLength,
   selected,
   favs,
   fillScale,
   onFavClick,
   tributes,
-  onFilterSelected
+  onFilterSelected,
+  removeSelected
 }) => (
   <Row>
     <Col xs={8} xsHidden sm={8}>
       <Playlist
         playlist={playlist}
+        playlistLength={playlistLength}
         selected={selected}
         favs={favs}
         fillScale={fillScale}
         onFavClick={onFavClick}
         dataForLegends={tributes.nation}
+        removeSelected={removeSelected}
       />
     </Col>
     <Col xs={4} xsHidden sm={4}>
@@ -124,6 +136,9 @@ const AppForDesktop = ({
             onFilterSelected={onFilterSelected}
           />
         </Tab.Pane>
+        <Tab.Pane eventKey={2.5}>
+          <Favs />
+        </Tab.Pane>
         <Tab.Pane eventKey={3}>
           <About />
         </Tab.Pane>
@@ -132,42 +147,14 @@ const AppForDesktop = ({
   </Row>
 );
 
-class Apps extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMobile: window.innerWidth < 768
-    };
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', e => {
-      const isMobile = this.state.isMobile;
-      if (e.target.innerWidth < 768 && !isMobile) {
-        // Desktop => Mobile
-        this.setState(prev => ({
-          isMobile: !prev.isMobile
-        }));
-      } else if (e.target.innerWidth >= 768 && isMobile) {
-        // Mobile => Desktop
-        this.setState(prev => ({
-          isMobile: !prev.isMobile
-        }));
-      }
-    })
-  }
-
-  render() {
-    return (
-      <Grid>
-        {this.state.isMobile ? (
-          <AppForMobile {...this.props} />
-        ) : (
-          <AppForDesktop {...this.props} />
-        )}
-      </Grid>
-    );
-  }
-}
+const Apps = props => (
+  <Grid className="app-main">
+    {props.isMobile ? (
+      <AppForMobile {...props} />
+    ) : (
+      <AppForDesktop {...props} />
+    )}
+  </Grid>
+);
 
 export default Apps;

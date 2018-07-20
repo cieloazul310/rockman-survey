@@ -1,0 +1,19 @@
+.x-axis line {
+  stroke: #333;
+}
+
+.x-axis text {
+
+}
+
+.y-axis line {
+  stroke: #eee;
+}
+
+.y-axis text {
+
+}
+
+.chart-settings {
+  text-align: right;
+}

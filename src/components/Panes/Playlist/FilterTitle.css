@@ -1,0 +1,15 @@
+.filter-title {
+  margin-left: .2em;
+}
+
+.remove-selected {
+  color: #777;
+  font-size: 75%;
+  margin-left: .2em;
+  cursor: pointer;
+  transition: color .25s;
+}
+
+.remove-selected:hover {
+  color: black;
+}

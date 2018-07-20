@@ -14,7 +14,7 @@ class App extends Component {
     super();
     this.state = {
       programs: null,
-      playlist: null,
+      playlist: null
     };
   }
 
@@ -39,15 +39,15 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div className="app-main">
-          {this.state.playlist !== null && this.state.programs !== null ? (
-            <AppMain
-              playlist={this.state.playlist}
-              programs={this.state.programs}
-            />
-          ) : Loader}
-        </div>
+      <div className="app-container">
+        {this.state.playlist !== null && this.state.programs !== null ? (
+          <AppMain
+            playlist={this.state.playlist}
+            programs={this.state.programs}
+          />
+        ) : (
+          <Loader />
+        )}
         {ScrollUp}
         {Footer}
       </div>

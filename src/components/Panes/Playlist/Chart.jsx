@@ -5,14 +5,17 @@ import { max as d3max } from 'd3-array';
 
 import Gumi from './Gumi';
 
-const XAxis = ({ xScale, state, step = 10 }) => (
-  <g transform={`translate(0, ${state.size.height - state.padding.bottom})`}>
+import './Chart.css';
+
+const XAxis = ({ xScale, size, padding, step = 10 }) => (
+  <g transform={`translate(0, ${size.height - padding.bottom})`} className="x-axis">
     {scale2axis(xScale, step).map((d, i) => (
       <g
         key={i}
+        className="ticks"
         transform={`translate(${xScale(d) + xScale.bandwidth() / 2}, 0)`}
       >
-        <line y1={3} y2={-3} stroke="black" />
+        <line y1={3} y2={-3} />
         <text dy="1.2em" textAnchor="middle">
           {d}
         </text>
@@ -21,14 +24,14 @@ const XAxis = ({ xScale, state, step = 10 }) => (
   </g>
 );
 
-const YAxis = ({ yScale, state, step = 10 }) => (
-  <g>
+const YAxis = ({ yScale, size, padding, step = 10 }) => (
+  <g className="y-axis">
     {scale2axis(yScale, step)
       .slice(1)
       .map((d, i) => (
-        <g key={i} transform={`translate(0, ${yScale(d)})`}>
-          <line x2={state.size.width} stroke="#eee" />
-          <text textAnchor="start" y={yScale.bandwidth()}>
+        <g key={i} className="ticks" transform={`translate(0, ${yScale(d)})`}>
+          <line x2={size.width} />
+          <text textAnchor="end" dx="1.2em" y={yScale.bandwidth()}>
             {d}
           </text>
         </g>
@@ -36,8 +39,8 @@ const YAxis = ({ yScale, state, step = 10 }) => (
   </g>
 );
 
-const GumiChecker = ({ active, onClick }) => (
-  <div style={{ textAlign: 'right' }}>
+const ChartSettings = ({ active, onClick }) => (
+  <div className="chart-settings">
     <Checkbox
       checked={active}
       onClick={() => {
@@ -53,16 +56,6 @@ class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      size: {
-        width: 760,
-        height: 320
-      },
-      padding: {
-        top: 10,
-        right: 10,
-        bottom: 28,
-        left: 10
-      },
       showOverture: false
     };
 
@@ -100,46 +93,7 @@ class Chart extends Component {
   ])
   .padding(0.2);
 
-  componentDidMount() {
-    /*
-    const years = this.props.playlist
-      .map((d, i) => parseInt(d.year, 10))
-      .sort();
-    const [min, max] = [years[0], years[years.length - 1]];
-
-    for (let i = min; i <= max; i++) {
-      this.data.push({
-        year: i,
-        tunes: this.props.playlist.filter(d => parseInt(d.year, 10) === i)
-      });
-    }
-    */
-/*
-    this.xScale
-      .domain(this.data.map(d => d.year))
-      .range([
-        this.state.padding.left,
-        this.state.size.width - this.state.padding.right
-      ])
-      .padding(0.2);
-
-    this.yScale
-      .domain(
-        Array.from(
-          {
-            length: Math.ceil(d3max(this.data, d => d.tunes.length) / 10) * 10
-          },
-          (d, i) => i + 1
-        )
-      )
-      .range([
-        this.state.size.height - this.state.padding.bottom,
-        this.state.padding.top
-      ])
-      .padding(0.2);
-
-    console.log(this.xScale.domain());*/
-  }
+  componentDidMount() {}
 
   sortGumis(a, b) {
     const { selected } = this.props;
@@ -156,15 +110,16 @@ class Chart extends Component {
   }
 
   render() {
-    console.log(this.data);
     return (
-      <div>
+      <div className="chart-container">
         <svg
-          viewBox={`0 0 ${this.state.size.width} ${
-            this.state.size.height
+          className="chart"
+          viewBox={`0 0 ${this.size.width} ${
+            this.size.height
           }`} /*width={this.state.size.width} height={this.state.size.height}*/
         >
-          <YAxis yScale={this.yScale} state={this.state} step={5} />
+          <YAxis yScale={this.yScale} size={this.size} step={5} />
+          <g className="gumis">
           {this.data.length
             ? this.data.map((d, i) => (
                 <g transform={`translate(${this.xScale(d.year)}, 0)`} key={i}>
@@ -191,9 +146,10 @@ class Chart extends Component {
                 </g>
               ))
             : null}
-          <XAxis xScale={this.xScale} state={this.state} />
+          </g>
+          <XAxis xScale={this.xScale} size={this.size} padding={this.padding} />
         </svg>
-        <GumiChecker
+        <ChartSettings
           active={this.state.showOverture}
           onClick={() => {
             this.setState(prev => ({
