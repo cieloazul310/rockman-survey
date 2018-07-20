@@ -9,7 +9,7 @@ const FilterPanelItem = ({ d, i, label, selected, onClick, color }) => (
     }}
   >
     {color ? (
-      <span style={{ color: /*color.scale(d[color.key])*/ color(d) }}>● </span>
+      <span style={{ color: color(d) }}>● </span>
     ) : null}
     {d[label]}
     <Badge>{d.tunes.length}</Badge>

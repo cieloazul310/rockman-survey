@@ -8,20 +8,22 @@ import SongList from './SongList';
 
 const Playlist = ({
   playlist,
+  playlistLength,
   selected,
   favs,
   fillScale,
   onFavClick,
-  dataForLegends
+  dataForLegends,
+  removeSelected
 }) => (
   <div>
     <h3>
-      Playlist <Badge>{playlist.length}</Badge>{' '}
-      <FilterTitle selected={selected} />
+      Playlist <Badge>{playlistLength}</Badge>
+      <FilterTitle selected={selected} removeSelected={removeSelected} />
     </h3>
     <Legends
       data={dataForLegends}
-      fill={(d) => fillScale(d.nation)}
+      fill={d => fillScale(d.nation)}
       label="nation"
       filter={(d, i, arr) =>
         arr

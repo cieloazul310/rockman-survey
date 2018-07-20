@@ -10,7 +10,7 @@ const Programs = ({ data, selected, onFilterSelected, isMobile }) => (
     </h3>
     <div
       style={isMobile ? {} : {
-        height: window.innerHeight - 100,
+        height: window.innerHeight - 150,
         overflowX: 'hidden',
         overflowY: 'scroll'
       }}

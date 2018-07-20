@@ -1,9 +1,0 @@
-
-span.fav {
-  color: silver;
-  cursor: pointer;
-}
-
-span.fav.active {
-  color: gold;
-}

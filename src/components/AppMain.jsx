@@ -10,21 +10,24 @@ import tribution from '../tribution';
 
 class AppMain extends Component {
   /** Props: playlist, programs
-    * State: selected, favs
-    * Const: tributes, fillScale
-    * func: onFilterSelected, onFavClick, showFavs
-    */
+   * State: selected, favs
+   * Const: tributes, fillScale
+   * func: onFilterSelected, onFavClick, showFavs
+   */
   constructor(props) {
     super(props);
 
     this.state = {
       selected: { key: null, label: null, tunes: [] },
-      favs: []
+      favs: [],
+      tab: window.innerWidth < 768 ? 1 : 2.1,
+      isMobile: window.innerWidth < 768
     };
     this.onFilterSelected = this.onFilterSelected.bind(this);
     this.onFavClick = this.onFavClick.bind(this);
     this.showFavs = this.showFavs.bind(this);
     this.parseHash = this.parseHash.bind(this);
+    this.handleTab = this.handleTab.bind(this);
   }
 
   tributes = {
@@ -50,6 +53,22 @@ class AppMain extends Component {
   );
 
   componentDidMount() {
+    window.addEventListener('resize', e => {
+      const isMobile = this.state.isMobile;
+      if (e.target.innerWidth < 768 && !isMobile) {
+        // Desktop => Mobile
+        this.setState(prev => ({
+          isMobile: !prev.isMobile,
+          tab: 1
+        }));
+      } else if (e.target.innerWidth >= 768 && isMobile) {
+        // Mobile => Desktop
+        this.setState(prev => ({
+          isMobile: !prev.isMobile,
+          tab: 2.1
+        }));
+      }
+    });
     // localStorageからfavsを取得する
     const storageFavs = localStorage.getItem('rockman-favs');
     if (storageFavs) {
@@ -66,6 +85,13 @@ class AppMain extends Component {
       // hash値を解析してsetStateする
       this.parseHash();
     }
+  }
+
+  handleTab(tab) {
+    if (tab === undefined) return;
+    this.setState({
+      tab: tab
+    });
   }
 
   onFilterSelected(d, label) {
@@ -87,7 +113,7 @@ class AppMain extends Component {
 
           window.history.pushState(this.state, '', hash);
         } else {
-          window.history.pushState(this.state, '', '/');
+          window.history.pushState(this.state, '', '#');
         }
       }
     );
@@ -116,10 +142,8 @@ class AppMain extends Component {
       };
       this.setState(
         prev => ({
-          selected:
-            prev.selected.key !== 'favs' || prev.selected.label !== 'favs'
-              ? neu
-              : { key: null, label: null, tunes: [] }
+          selected: neu,
+          tab: prev.isMobile ? 1 : prev.tab
         }),
         () => {
           if (
@@ -129,45 +153,50 @@ class AppMain extends Component {
             const hash = `#favs`;
 
             window.history.pushState(this.state, '', hash);
-          } else {
-            window.history.pushState(
-              this.state,
-              `${this.state.selected.key}: ${decodeURI(
-                this.state.selected.label
-              )}`,
-              '/'
-            );
           }
         }
       );
+    } else {
+      this.setState({
+        tab: 2.5
+      })
     }
   }
 
   parseHash() {
-    if (window.location.hash !== '') {
-      const hash = window.location.hash;
-      const parts = hash.slice(1).split('=');
+    if (window.location.hash === '') return;
+    const hash = window.location.hash;
+    const parts = hash.slice(1).split('=');
 
-      if (parts.length === 1 && parts[0] === 'favs') {
-        this.setState({
-          selected: {
-            key: 'favs',
-            label: 'favs',
-            tunes: this.state.favs
-          }
-        });
-      } else if (parts.length === 2) {
-        const neu = {
-          key: parts[0],
-          label: parts[1],
-          tunes: this.tributes[parts[0]]
-            .filter(d => d[parts[0]] === decodeURI(parts[1]))[0]
-            .tunes.map(d => d.id)
-        };
-        this.setState({
-          selected: neu
-        });
-      }
+    if (parts.length === 1 && parts[0] === 'favs') {
+      // https://cieloazul310.github.io/rockman-survey/#favs
+      this.setState({
+        selected: {
+          key: 'favs',
+          label: 'favs',
+          tunes: this.state.favs
+        },
+        tab: 1
+      });
+    } else if (parts.length === 2) {
+      // https://cieloazul310.github.io/rockman-survey/#week=2
+      const key = parts[0];
+      const label = decodeURI(parts[1]);
+
+      if (!this.tributes.hasOwnProperty(key)) return;
+      if (!this.tributes[key].filter(d => d[key] === label).length) return;
+
+      const neu = {
+        key: key,
+        label: label,
+        tunes: this.tributes[key]
+          .filter(d => d[key] === label)[0]
+          .tunes.map(d => d.id)
+      };
+      this.setState(prev => ({
+        selected: neu,
+        tab: prev.isMobile ? 1 : selected2tab(neu)
+      }));
     }
   }
 
@@ -184,23 +213,68 @@ class AppMain extends Component {
       selected: this.state.selected.tunes.indexOf(d.id) >= 0
     }));
 
-    const selectedLength = selected.key !== null ? selected.tunes.length : playlist.length;
+    const selectedLength =
+      selected.key !== null ? selected.tunes.length : playlist.length;
 
     return (
-      <Tab.Container id="rockman-menu" defaultActiveKey={2.1}>
+      <Tab.Container
+        id="rockman-menu"
+        defaultActiveKey={2.1}
+        onSelect={tab => {
+          this.handleTab(tab);
+        }}
+        activeKey={this.state.tab}
+      >
         <div>
-          <AppNavbar tributes={this.tributes} showFavs={this.showFavs} state={this.state} playlistLength={selectedLength} />
-          <Apps playlist={playlist}
+          <AppNavbar
+            tributes={this.tributes}
+            isMobile={this.state.isMobile}
+            showFavs={this.showFavs}
+            state={this.state}
+            playlistLength={selectedLength}
+          />
+          <Apps
+            playlist={playlist}
+            isMobile={this.state.isMobile}
             selected={this.state.selected}
+            playlistLength={selectedLength}
             favs={this.state.favs}
             fillScale={this.fillScale}
             onFavClick={this.onFavClick}
             onFilterSelected={this.onFilterSelected}
-            tributes={this.tributes} />
+            tributes={this.tributes}
+            removeSelected={() => {
+              this.setState(
+                {
+                  selected: { key: null, label: null, tunes: [] }
+                },
+                () => {
+                  window.history.pushState(this.state, '', '#');
+                }
+              );
+            }}
+          />
         </div>
       </Tab.Container>
     );
   }
+}
+
+function selected2tab(selected) {
+  const { key } = selected;
+  return key === null
+    ? 1
+    : key === 'week'
+      ? 2.1
+      : key === 'artist'
+        ? 2.2
+        : key === 'nation'
+          ? 2.3
+          : key === 'corner'
+            ? 2.4
+            : key === 'favs'
+              ? 2.1
+              : 1;
 }
 
 export default AppMain;

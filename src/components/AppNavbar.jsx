@@ -11,7 +11,7 @@ import {
 } from 'react-bootstrap';
 import './AppNavbar.css';
 
-const AppNavbar = ({ tributes, showFavs, state, playlistLength }) => (
+const NavForMobile = ({ tributes, showFavs, state, playlistLength }) => (
   <div className="app-navbar">
     <Col xs={6} smHidden mdHidden lgHidden>
       <Nav justified>
@@ -44,17 +44,26 @@ const AppNavbar = ({ tributes, showFavs, state, playlistLength }) => (
             {'Corners'} <Badge>{tributes.corner.length}</Badge>
           </MenuItem>
           <MenuItem
-            active={state.selected.key === 'favs'}
+            active={state.tab === 2.5}
             onClick={() => {
               showFavs();
             }}
           >
-            favs <Badge>{state.favs.length}</Badge>
+            <Glyphicon
+              glyph="star"
+              style={{ color: state.selected.key === 'favs' ? 'gold' : 'silver' }}
+            />
+            {' favs'} <Badge>{state.favs.length}</Badge>
           </MenuItem>
           <MenuItem eventKey={3}>{'About'}</MenuItem>
         </NavDropdown>
       </Nav>
     </Col>
+  </div>
+);
+
+const NavForDesktop = ({ tributes, showFavs, state, playlistLength }) => (
+  <div className="app-navbar">
     <Col xsHidden smHidden md={3}>
       <Navbar.Header>
         <Navbar.Brand>
@@ -80,8 +89,8 @@ const AppNavbar = ({ tributes, showFavs, state, playlistLength }) => (
           {'Corners'} <Badge>{tributes.corner.length}</Badge>
         </NavItem>
         <NavItem
-          eventKey={2.5}
           className="nav-larger"
+          active={state.tab === 2.5}
           onClick={() => {
             showFavs();
           }}
@@ -96,5 +105,8 @@ const AppNavbar = ({ tributes, showFavs, state, playlistLength }) => (
     </Col>
   </div>
 );
+
+const AppNavbar = props =>
+  props.isMobile ? <NavForMobile {...props} /> : <NavForDesktop {...props} />;
 
 export default AppNavbar;

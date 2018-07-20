@@ -1,8 +1,23 @@
 span.fav {
   color: silver;
   cursor: pointer;
+  transition: color .25s;
+}
+
+span.fav:hover {
+  color: #ddd;
 }
 
 span.fav.active {
   color: gold;
+}
+
+span.playtube {
+  margin-right: .8em;
+}
+
+.playlist-item-buttons {
+  position: absolute;
+  right: 1em;
+  top: 1em;
 }
