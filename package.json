@@ -4,6 +4,7 @@
   "homepage": "https://cieloazul310.github.io/rockman-survey",
   "private": true,
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "^3.3.7",
     "d3": "^5.5.0",
     "d3-dsv": "^1.0.8",

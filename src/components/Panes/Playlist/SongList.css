@@ -18,6 +18,7 @@ span.playtube {
 
 .playlist-item-buttons {
   position: absolute;
-  right: 1em;
-  top: 1em;
+  right: .8em;
+  top: .8em;
+  font-size: 120%;
 }
