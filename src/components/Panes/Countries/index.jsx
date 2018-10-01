@@ -1,5 +1,5 @@
-import React from 'react';
-import FilterPanel from '../FilterPanel';
+import React from "react";
+import FilterPanel from "../FilterPanel";
 
 // Artists/index.jsx
 
@@ -11,8 +11,11 @@ const Countries = ({
   isMobile
 }) => (
   <FilterPanel
-    title="Countries"
-    data={data}
+    title="国・地域"
+    data={data.sort(
+      (a, b) =>
+        b.tunes.length - a.tunes.length || a.nation.localeCompare(b.nation)
+    )}
     label="nation"
     selected={selected}
     onClick={onFilterSelected}

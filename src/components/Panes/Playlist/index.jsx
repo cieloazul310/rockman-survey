@@ -18,7 +18,7 @@ const Playlist = ({
 }) => (
   <div>
     <h3>
-      Playlist <Badge>{playlistLength}</Badge>
+      プレイリスト <Badge>{playlistLength}</Badge>
       <FilterTitle selected={selected} removeSelected={removeSelected} />
     </h3>
     <Legends

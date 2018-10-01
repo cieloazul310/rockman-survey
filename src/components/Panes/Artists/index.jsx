@@ -11,7 +11,7 @@ const Artists = ({
   isMobile
 }) => (
   <FilterPanel
-    title="Artists"
+    title="アーティスト"
     data={data}
     label="artist"
     selected={selected}

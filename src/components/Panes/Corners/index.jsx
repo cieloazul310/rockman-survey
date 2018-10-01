@@ -11,7 +11,7 @@ const Corners = ({
   isMobile
 }) => (
   <FilterPanel
-    title="Corners"
+    title="コーナー"
     data={data}
     label="corner"
     selected={selected}

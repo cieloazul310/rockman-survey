@@ -16,7 +16,7 @@ const NavForMobile = ({ tributes, showFavs, state, playlistLength }) => (
     <Col xs={6} smHidden mdHidden lgHidden>
       <Nav justified>
         <NavItem eventKey={1} className="nav-larger">
-          <Glyphicon glyph="music" /> Playlist <Badge>{playlistLength}</Badge>
+          <Glyphicon glyph="music" /> プレイリスト <Badge>{playlistLength}</Badge>
         </NavItem>
       </Nav>
     </Col>
@@ -26,22 +26,22 @@ const NavForMobile = ({ tributes, showFavs, state, playlistLength }) => (
           eventKey={2}
           title={
             <span>
-              <Glyphicon glyph="menu-hamburger" /> Memu
+              <Glyphicon glyph="menu-hamburger" /> メニュー
             </span>
           }
           className="nav-larger"
         >
           <MenuItem eventKey={2.1}>
-            {'Programs'} <Badge>{tributes.week.length}</Badge>
+            {'放送回'} <Badge>{tributes.week.length}</Badge>
           </MenuItem>
           <MenuItem eventKey={2.2}>
-            {'Artists'} <Badge>{tributes.artist.length}</Badge>
+            {'アーティスト'} <Badge>{tributes.artist.length}</Badge>
           </MenuItem>
           <MenuItem eventKey={2.3}>
-            {'Countries'} <Badge>{tributes.nation.length}</Badge>
+            {'国・地域'} <Badge>{tributes.nation.length}</Badge>
           </MenuItem>
           <MenuItem eventKey={2.4}>
-            {'Corners'} <Badge>{tributes.corner.length}</Badge>
+            {'コーナー'} <Badge>{tributes.corner.length}</Badge>
           </MenuItem>
           <MenuItem
             active={state.tab === 2.5}
@@ -77,16 +77,16 @@ const NavForDesktop = ({ tributes, showFavs, state, playlistLength }) => (
           {'About'}
         </NavItem>
         <NavItem eventKey={2.1} className="nav-larger">
-          {'Programs'} <Badge>{tributes.week.length}</Badge>
+          {'放送回'} <Badge>{tributes.week.length}</Badge>
         </NavItem>
         <NavItem eventKey={2.2} className="nav-larger">
-          {'Artists'} <Badge>{tributes.artist.length}</Badge>
+          {'アーティスト'} <Badge>{tributes.artist.length}</Badge>
         </NavItem>
         <NavItem eventKey={2.3} className="nav-larger">
-          {'Countries'} <Badge>{tributes.nation.length}</Badge>
+          {'国・地域'} <Badge>{tributes.nation.length}</Badge>
         </NavItem>
         <NavItem eventKey={2.4} className="nav-larger">
-          {'Corners'} <Badge>{tributes.corner.length}</Badge>
+          {'コーナー'} <Badge>{tributes.corner.length}</Badge>
         </NavItem>
         <NavItem
           className="nav-larger"

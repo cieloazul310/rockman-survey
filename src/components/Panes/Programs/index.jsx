@@ -6,7 +6,7 @@ import { Badge, ListGroup, ListGroupItem } from 'react-bootstrap';
 const Programs = ({ data, selected, onFilterSelected, isMobile }) => (
   <div>
     <h3 id="programs">
-      Programs <Badge>{data.length}</Badge>
+      放送回 <Badge>{data.length}</Badge>
     </h3>
     <div
       style={isMobile ? {} : {

@@ -39,9 +39,7 @@ class AppMain extends Component {
     ),
     nation: tribution(
       this.props.playlist,
-      'nation',
-      (a, b) =>
-        b.tunes.length - a.tunes.length || a.nation.localeCompare(b.nation)
+      'nation'
     ),
     corner: tribution(this.props.playlist, 'corner').filter(
       d => d.corner !== ''
@@ -49,7 +47,7 @@ class AppMain extends Component {
   };
 
   fillScale = scaleOrdinal(schemeCategory10).domain(
-    this.tributes.nation.map(d => d.nation)
+    ['JPN', 'UK', 'US', ...this.tributes.nation.map(d => d.nation).slice(3)]
   );
 
   componentDidMount() {
