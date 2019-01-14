@@ -41,12 +41,12 @@ const Buttons = ({ d, onFavClick }) => (
 const PlaylistItem = ({ d, i, color, onFavClick }) => (
   <ListGroupItem style={{borderLeft: `2px solid ${color}`}}>
     <p>
-      <small>{`Week${d.week} ${d.corner}`}</small>
+      <small>{`Week ${d.week} ${d.corner}`}</small>
     </p>
     <h4>{`${i + 1}.  ${d.name}`}</h4>
     <span title={d.kana || d.artist}>{d.artist + ' '}</span>
     <small>
-      {`/ ${d.year} `}
+      {`| ${d.year} `}
       <Label style={{ backgroundColor: color }}>{d.nation}</Label>
     </small>
     <Buttons d={d} onFavClick={onFavClick} />
