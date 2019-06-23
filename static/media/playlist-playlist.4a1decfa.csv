@@ -118,9 +118,9 @@ id,week,name,artist,kana,year,nation,label,producer,corner,youtube
 117,15,We Will Rock You,Queen,,1977,UK,EMI,,,-tJYN-eG1zk
 118,15,If the Kids Are United,Sham 69,,1978,UK,Polydor,,,ag-Ht5jg-6M
 119,15,Idle Gossip,Toy Dolls,,1986,UK,Volume Records,,,RjCi2vFeZhk
-120,15,We’re Not Gonna Take It,Twisted Sister,,1984,US,Tom Werman,,,4xmckWVPRaI
+120,15,We’re Not Gonna Take It,Twisted Sister,,1984,US,Atlantic,Tom Werman,,4xmckWVPRaI
 121,15,Drunken Lullabies,Flogging Molly,,2002,US,SideOneDummy,Ted Hutt,,89NjEeHku8o
-122,15,Sólo le pido a Dios,León Gieco,,1978,ARG,,,,UdEIMVbGUI4
+122,15,Sólo le pido a Dios,León Gieco,,1978,ARG,Music Hall,,,UdEIMVbGUI4
 123,15,天井裏から愛を込めて,アンジー,,1988,JPN,メルダック,,ちょっぴりタイムマシン,
 124,16,シロクマ,スピッツ,,2010,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,UiYl1r5m5a0
 125,16,Baba O'Riley,The Who,,1971,UK,Polydor,Glyn Johns,,LDknRxdHNog
@@ -623,3 +623,19 @@ id,week,name,artist,kana,year,nation,label,producer,corner,youtube
 622,75,The Reflex,Duran Duran,,1984,UK,EMI,,,J5ebkj9x5Ko
 623,75,Rain of Crystal Spires,Felt,,1986,UK,Creation,,,om9lXoFuY2k
 624,75,Season Train,RAZZ MA TAZZ,,1995,JPN,フォーライフ,,ちょっぴりタイムマシン,
+625,76,悪役,スピッツ,,2019,JPN,ユニバーサル,,漫遊前の一曲,
+626,76,あぁ青春,GO!GO!7188,,2001,JPN,東芝EMI,,,
+627,76,小さな恋のうた,MONGOL800,,2001,JPN,HIGH WAVE,,,u8EkSB9zSpE
+628,76,雨は毛布のように,キリンジ,,2001,JPN,ワーナーミュージック・ジャパン,冨田恵一,,HWyyxJoZHyY
+629,76,Light Your Fire,RIZE,,2001,JPN,エピックレコードジャパン,,,SxsT-D_eEFg
+630,76,生活,Syrup16g,,2001,JPN,DAIZAWA RECORDS,,,
+631,76,Volcanic Girl,Buffalo Daughter,,2001,JPN,東芝EMI,,,
+632,76,cream soda,SUPERCAR,,1997,JPN,エピックレコードジャパン,,ちょっぴりタイムマシン,
+633,77,優しいあの子,スピッツ,,2019,JPN,ユニバーサル,,漫遊前の一曲,
+634,77,Kill the King,Rainbow,,1978,UK,Polydor,Martin Birch,,zEaxow3PoO0
+635,77,Love Pains,Ronnie Dio & The Prophets,,1962,UK,Atlantic,,,ObasKE0PLTA
+636,77,Good Time Music,Elf,,1975,UK,MGM,Roger Glover,,
+637,77,Man on the Silver Mountain,Rainbow,,1975,UK,Oyster,,,ORnvO1VyYMk
+638,77,Neon Knights,Black Sabbath,,1980,UK,Vertigo,Martin Birch,,LJOvZ2AyDnA
+639,77,Caught In The Middle,Dio,,1983,UK,Warner Bros.,,,qsskD9g_grg
+640,77,愛をちょうだい,VANILLA,,1995,JPN,ソニー・ミュージックレコーズ,,ちょっぴりタイムマシン,
