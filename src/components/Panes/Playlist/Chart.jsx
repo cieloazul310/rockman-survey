@@ -8,7 +8,10 @@ import Gumi from './Gumi';
 import './Chart.css';
 
 const XAxis = ({ xScale, size, padding, step = 10 }) => (
-  <g transform={`translate(0, ${size.height - padding.bottom})`} className="x-axis">
+  <g
+    transform={`translate(0, ${size.height - padding.bottom})`}
+    className="x-axis"
+  >
     {scale2axis(xScale, step).map((d, i) => (
       <g
         key={i}
@@ -68,30 +71,26 @@ class Chart extends Component {
   };
   padding = {
     top: 10,
-    right: 10,
+    right: 20,
     bottom: 28,
     left: 10
   };
   data = tributeByYear(this.props.playlist);
-  xScale = scaleBand().domain(this.data.map(d => d.year))
-  .range([
-    this.padding.left,
-    this.size.width - this.padding.right
-  ])
-  .padding(0.2);
-  yScale = scaleBand().domain(
-    Array.from(
-      {
-        length: Math.ceil(d3max(this.data, d => d.tunes.length) / 10) * 10
-      },
-      (d, i) => i + 1
+  xScale = scaleBand()
+    .domain(this.data.map(d => d.year))
+    .range([this.padding.left, this.size.width - this.padding.right])
+    .padding(0.2);
+  yScale = scaleBand()
+    .domain(
+      Array.from(
+        {
+          length: Math.ceil(d3max(this.data, d => d.tunes.length) / 10) * 10
+        },
+        (d, i) => i + 1
+      )
     )
-  )
-  .range([
-    this.size.height - this.padding.bottom,
-    this.padding.top
-  ])
-  .padding(0.2);
+    .range([this.size.height - this.padding.bottom, this.padding.top])
+    .padding(0.2);
 
   componentDidMount() {}
 
@@ -110,44 +109,47 @@ class Chart extends Component {
   }
 
   render() {
+    const { width } = this.props;
+    const height = width > 380 ? 380 : width;
+    this.xScale.range([this.padding.left, width - this.padding.right]);
+    this.yScale.range([height - this.padding.bottom, this.padding.top]);
     return (
       <div className="chart-container">
-        <svg
-          className="chart"
-          viewBox={`0 0 ${this.size.width} ${
-            this.size.height
-          }`} /*width={this.state.size.width} height={this.state.size.height}*/
-        >
-          <YAxis yScale={this.yScale} size={this.size} step={5} />
+        <svg className="chart" width={width} height={height}>
+          <YAxis yScale={this.yScale} size={{ width, height }} step={5} />
           <g className="gumis">
-          {this.data.length
-            ? this.data.map((d, i) => (
-                <g transform={`translate(${this.xScale(d.year)}, 0)`} key={i}>
-                  {d.tunes.length
-                    ? d.tunes
-                        .filter(
-                          d =>
-                            this.state.showOverture ||
-                            d.corner !== '漫遊前の一曲'
-                        )
-                        .sort(this.sortGumis)
-                        .map((v, index) => (
-                          <Gumi
-                            d={v}
-                            index={index}
-                            key={index}
-                            xScale={this.xScale}
-                            yScale={this.yScale}
-                            fill={this.props.fillScale(v.nation)}
-                            selectedTunes={this.props.selected.tunes}
-                          />
-                        ))
-                    : null}
-                </g>
-              ))
-            : null}
+            {this.data.length
+              ? this.data.map((d, i) => (
+                  <g transform={`translate(${this.xScale(d.year)}, 0)`} key={i}>
+                    {d.tunes.length
+                      ? d.tunes
+                          .filter(
+                            d =>
+                              this.state.showOverture ||
+                              d.corner !== '漫遊前の一曲'
+                          )
+                          .sort(this.sortGumis)
+                          .map((v, index) => (
+                            <Gumi
+                              d={v}
+                              index={index}
+                              key={index}
+                              xScale={this.xScale}
+                              yScale={this.yScale}
+                              fill={this.props.fillScale(v.nation)}
+                              selectedTunes={this.props.selected.tunes}
+                            />
+                          ))
+                      : null}
+                  </g>
+                ))
+              : null}
           </g>
-          <XAxis xScale={this.xScale} size={this.size} padding={this.padding} />
+          <XAxis
+            xScale={this.xScale}
+            size={{ width, height }}
+            padding={this.padding}
+          />
         </svg>
         <ChartSettings
           active={this.state.showOverture}

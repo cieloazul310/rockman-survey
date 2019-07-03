@@ -10,13 +10,14 @@ const Playlist = ({
   playlist,
   playlistLength,
   selected,
-  favs,
+  width,
+  //favs,
   fillScale,
-  onFavClick,
+  //onFavClick,
   dataForLegends,
   removeSelected
 }) => (
-  <div>
+  <div style={{ width }}>
     <h3>
       プレイリスト <Badge>{playlistLength}</Badge>
       <FilterTitle selected={selected} removeSelected={removeSelected} />
@@ -32,12 +33,17 @@ const Playlist = ({
           .indexOf(d.nation) < 5
       }
     />
-    <Chart playlist={playlist} selected={selected} fillScale={fillScale} />
+    <Chart
+      playlist={playlist}
+      selected={selected}
+      fillScale={fillScale}
+      width={width}
+    />
     <SongList
       playlist={playlist}
       fillScale={fillScale}
       selection={selected.tunes.length ? true : false}
-      onFavClick={onFavClick}
+      width={width}
     />
   </div>
 );
@@ -50,7 +56,7 @@ Playlist.propTypes = {
     tunes: PropTypes.arrayOf(PropTypes.number)
   }),
   fillScale: PropTypes.func.isRequired,
-  onFavClick: PropTypes.func.isRequired,
+  //onFavClick: PropTypes.func.isRequired,
   dataForLegends: PropTypes.arrayOf(PropTypes.object)
 };
 

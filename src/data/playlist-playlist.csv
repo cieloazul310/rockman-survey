@@ -118,9 +118,9 @@ id,week,name,artist,kana,year,nation,label,producer,corner,youtube
 117,15,We Will Rock You,Queen,,1977,UK,EMI,,,-tJYN-eG1zk
 118,15,If the Kids Are United,Sham 69,,1978,UK,Polydor,,,ag-Ht5jg-6M
 119,15,Idle Gossip,Toy Dolls,,1986,UK,Volume Records,,,RjCi2vFeZhk
-120,15,We’re Not Gonna Take It,Twisted Sister,,1984,US,Tom Werman,,,4xmckWVPRaI
+120,15,We’re Not Gonna Take It,Twisted Sister,,1984,US,Atlantic,Tom Werman,,4xmckWVPRaI
 121,15,Drunken Lullabies,Flogging Molly,,2002,US,SideOneDummy,Ted Hutt,,89NjEeHku8o
-122,15,Sólo le pido a Dios,León Gieco,,1978,ARG,,,,UdEIMVbGUI4
+122,15,Sólo le pido a Dios,León Gieco,,1978,ARG,Music Hall,,,UdEIMVbGUI4
 123,15,天井裏から愛を込めて,アンジー,,1988,JPN,メルダック,,ちょっぴりタイムマシン,
 124,16,シロクマ,スピッツ,,2010,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,UiYl1r5m5a0
 125,16,Baba O'Riley,The Who,,1971,UK,Polydor,Glyn Johns,,LDknRxdHNog
@@ -320,7 +320,7 @@ id,week,name,artist,kana,year,nation,label,producer,corner,youtube
 319,39,虹の都へ,高野寛,たかのひろし,1990,JPN,東芝EMI,Todd Rundgren,,
 320,39,全部あとまわし,The ピーズ,,1989,JPN,ビクター,,,
 321,39,コッペル,DOG HAIR DRESSERS,,1999,JPN,SO What? Records,根岸孝旨,,MNIgxUYIAFI
-322,39,子供の十字軍,さねよしいさ子,,1993,JPN,フォーライフ ミュージックエンタテイメント,,,
+322,39,子供の十字軍,さねよしいさ子,,1993,JPN,フォーライフ,,,
 323,39,旅に出よう,寺田十三夫,てらだとみお,1972,JPN,ポリドール,,,
 324,39,午前8時の脱走計画,Cymbals,,1999,JPN,ビクター,,,
 325,39,町蔵・町子・破壊,0、8秒と衝撃。,,2011,JPN,EVOL RECORDS,,ちょっぴりタイムマシン,RzjuBm0Z0I4
@@ -451,3 +451,199 @@ id,week,name,artist,kana,year,nation,label,producer,corner,youtube
 450,54,Superstar,Sonic Youth,,1994,US,A&M,,三輪テツヤ選曲,Y21VecIIdBI
 451,54,Mother,Christina Aguilera,,2007,US,Warner Bros.,Linda Perry,三輪テツヤ選曲,KUtqtCCR0cs
 452,54,夏の魔物,小島麻由美,こじままゆみ,2002,JPN,Dreamusic,,三輪テツヤ選曲,
+453,55,クリスピー,スピッツ,,1993,JPN,ポリドール,笹路正徳,崎山龍男選曲,
+454,55,We’re an American Band,Grand Funk Railroad,,1973,US,Capitol Records,Todd Rundgren,崎山龍男選曲,QxNXFNCTr2I
+455,55,Smokin' in the Boys Room,Mötley Crüe,,1985,US,Elektra,Tom Werman,崎山龍男選曲,9Hp1Bxko8M8
+456,55,Some Skunk Funk (Live 1978),Brecker Brothers,,1978,US,Arista,Randy Brecker,崎山龍男選曲,
+457,55,Good Times Bad Times,Led Zeppelin,,1969,UK,Atlantic,,崎山龍男選曲,lsZG7n7ries
+458,55,Armed and Ready,Michael Schenker Group,,1980,GER,Chrysalis,Roger Glover,崎山龍男選曲,zZ9VzWEQnIY
+459,55,Walking on the Moon,The Police,,1979,UK,A&M,Nigel Gray,崎山龍男選曲,zPwMdZOlPo8
+460,55,Heaven,The Groovers,,1989,JPN,アルファレコード,平沢進,崎山龍男選曲,
+461,56,ハートが帰らない,スピッツ,,2000,JPN,ポリドール,石田小吉,田村明浩選曲,
+462,56,Train in Vain,The Clash,,1980,UK,CBS,Guy Stevens,田村明浩選曲,aUzBgeI5dpc
+463,56,I Know What I Want,Cheap Trick,,1979,US,Epic,Tom Werman,田村明浩選曲,6thKHnNZ8pQ
+464,56,Gettin' Tighter,Deep Purple,,1975,UK,Purple,Martin Birch,田村明浩選曲,JCh53BTSGuU
+465,56,39,Queen,,1975,UK,EMI,Roy Thomas Baker,田村明浩選曲,kE8kGMfXaFU
+466,56,かえるの唄,クリープハイプ,,2013,JPN,ビクターエンタテイメント,,田村明浩選曲,
+467,56,デッドマンズチェイス (Kameleon Lights Version),go!go!vanillas,,2016,JPN,ビクターエンタテイメント,,田村明浩選曲,
+468,56,BYE BYE POPSICLE,L⇔R,,1992,JPN,ポリスター,,田村明浩選曲,
+469,57,SUGINAMI MELODY,スピッツ,,2002,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,
+470,57,カロン,ねごと,,2011,JPN,Ki/oon Records,いしわたり淳治,,9UBvB8joUeE
+471,57,オゾンのダンス,たま,,1990,JPN,日本クラウン,,,
+472,57,ディスコ,ミツメ,,2012,JPN,mitsume,,,CDVfHCHTbKI
+473,57,風の仕業,森は生きている,もりはいきている,2014,JPN,P-VINE,,,
+474,57,解,あぶらだこ,,1989,JPN,Wax Records,,,
+475,57,メロディ,踊ってばかりの国,おどってばかりのくに,2018,JPN,ツクモガミ,,,IbOb_dB83iw
+476,57,少年,黒夢,くろゆめ,1997,JPN,東芝EMI,,,aoWddavMgB8
+477,57,HIMITSUスパーク,カラスは真っ白,,2015,JPN,SPACE SHOWER MUSIC,,ちょっぴりタイムマシン,h_26_gR7Vs8
+478,58,プール,スピッツ,,1991,JPN,ポリドール,,漫遊前の一曲,
+479,58,Like a Daydream,Ride,,1990,UK,Creation,,,8zzo25t_eC8
+480,58,Never Understand,The Jesus and Mary Chain,,1985,UK,Blanco y Negro,,,2bzrCCKDwc
+481,58,Taste,Ride,,1990,UK,Creation,Marc Waterman,,APqGzOD0fUk
+482,58,Paralysed,Ride,,1990,UK,Creation,Marc Waterman,,weQjUYxRv4A
+483,58,Cool Your Boots,Ride,,1992,UK,Creation,Alan Moulder,,3aFh4oTmIio
+484,58,Charm Assault,Ride,,2017,UK,Wichita Recordings,Erol Alkan,,nW_lRP2RqX8
+485,58,UNDER the U.K.,横道坊主,おうどうぼうず,1989,JPN,東芝EMI,,ちょっぴりタイムマシン,1XdcLU9N5AE
+486,59,ただ春を待つ,スピッツ,,1998,JPN,ポリドール,棚谷祐一,漫遊前の一曲,
+487,59,Into the Arena,Michael Schenker Group,,1980,GER,Chrysalis,Roger Glover,,BWeBbHRKDIk
+488,59,Eruption,Van Halen,,1978,US,Warner Bros.,Ted Templeman,,M4Czx8EWXb0
+489,59,Lester Leaps In,The Monochrome Set,,1979,UK,Rough Trade,,,ZyWNhgITOZI
+490,59,The Hunt,Tommy Emmanuel,,1993,AUS,Columbia,Rick Neigher,,r74uI1pQBsI
+491,59,Stratagem,Eric Johnson,,2017,US,Vortexan Music,,放送事故で曲かからず,4S4grLL10UM
+492,59,Weiss Heim,Rainbow,,1980,UK,Polydor,,,w-taBiGe21g
+493,59,SACRED FIELD,TAK MATSUMOTO,,2002,JPN,Rooms RECORDS,,,
+494,59,SAUDADE,高中正義,たかなかまさよし,1982,JPN,Kitty Records,,ちょっぴりタイムマシン,
+495,60,Stratagem,Eric Johnson,,2017,US,Vortexan Music,,漫遊前の一曲,4S4grLL10UM
+496,60,Beat It,Michael Jackson,,1983,US,Epic,Quincy Jones,,oRdxUFDoQe0
+497,60,Dreaming,Blondie,,1979,US,Chrysalis,Mike Chapman,,TU3-lS_Gryk
+498,60,A Man I'll Never Be,Boston,,1978,US,Epic,,,gZxP3bMn0as
+499,60,One Night Love Affair,Bryan Adams,,1985,CAN,A&M,Bob Clearmountain,,W3SwEZ2WoUA
+500,60,I Don't Like Mondays,The Boomtown Rats,,1979,IRE,Ensign,Phil Wainman,,-Kobdb37Cwc
+501,60,Air Guitar,McBusted,,2014,UK,Island,,,6mLKQgP8pdM
+502,60,LET'S GET TOGETHER,THE RYDERS,,1991,JPN,トイズファクトリー,,ちょっぴりタイムマシン,
+503,61,つぐみ,スピッツ,,2010,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,I34Zdec6RWk
+504,61,I Was Made for Lovin' You,Kiss,,1979,US,Casablanca,,,12fJAnaif34
+505,61,Hungry Heart,Bruce Springsteen,,1980,US,Columbia,John Landau,,boJhWtw-6Gg
+506,61,Rock Brigade,Def Leppard,,1980,UK,Vertigo,Tom Allom,,NRYSlLLU0RE
+507,61,Tonight,Zaine Griff,,1980,NZ,Automatic,,,guZ1Eam4xSw
+508,61,No Strings Attached,Wild Horses,,1980,UK,EMI,Trevor Rabin,,DShRY11q_CI
+509,61,Brass in Pocket,The Pretenders,,1979,UK,Real,Chris Thomas,,xjnduGbq6r0
+510,61,Wait for Me,Daryl Hall and John Oates,,1979,US,RCA,David Foster,,5zkHLp24Gis
+511,61,ロンリー・ハート (Lonely Hearts),Creation,,1981,JPN,東芝EMI,,ちょっぴりタイムマシン,N4gnKRUZKMI
+512,62,ヒビスクス,スピッツ,,2016,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,
+513,62,マリーゴールド,あいみょん,,2018,JPN,unBORDE,,,0xSiBpUdW4E
+514,62,New Rose,The Damned,,1976,UK,Stiff,Nick Lowe,,cHvSDCLLFpc
+515,62,カトレア,ヨルシカ,,2017,JPN,U&R records,,,
+516,62,Fresh As A Daisy,Emitt Rhodes,,1970,US,Dunhill,,,
+517,62,Sunflower,Paul Weller,,1993,UK,Go! Discs,,,BeiB9x5XT_0
+518,62,ハイビスカスは冬に咲く,チャットモンチー,,2009,JPN,Ki/oon Records,亀田誠治,,
+519,62,Jasmine,佐藤聖子,さとうせいこ,1993,JPN,フォーライフ,,ちょっぴりタイムマシン,
+520,63,幻のドラゴン,スピッツ,,2010,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,
+521,63,Fox on the Run,Sweet,,1974,UK,RCA Victor,,,qBdFA6sI6-8
+522,63,Little Willy,Sweet,,1972,UK,RCA,Phil Wainman,,NM6I-pmV0RA
+523,63,Block Buster!,Sweet,,1973,UK,RCA,Phil Wainman,,Y64211sjSko
+524,63,Action,Sweet,,1975,UK,RCA,,,TcQDi6u28VQ
+525,63,Lady Starlight,Sweet,,1974,UK,RCA,,,FS4wK0V4OQM
+526,63,Love Is Like Oxygen,Sweet,,1977,UK,Polydor,,,tXJ4TZSXtzc
+527,63,恋のマジックポーション,すかんち,,1991,JPN,Sony Records,,ちょっぴりタイムマシン,
+528,64,オケラ,スピッツ,,2009,JPN,ユニバーサル,,漫遊前の一曲,
+529,64,Sunny Day Sunday,センチメンタル・バス,,1999,JPN,エピックレコードジャパン,ホッピー神山,,
+530,64,Wild Thing,X,,1984,US,Elektra,,,ro4hdf-Z0fE
+531,64,BASEBALL KID'S ROCK,浜田省吾,はまだしょうご,1990,JPN,ソニーレコード,,,
+532,64,ダイヤモンドの鷹,竜童組,りゅうどうぐみ,1989,JPN,EPIC SONY,,,
+533,64,SKY,MEGA STOPPER,,2005,JPN,JAC POT RECORDS,,,
+534,64,Sugar!!,フジファブリック,,2009,JPN,EMIミュージック・ジャパン,亀田誠治,,D0P6kOqLboQ
+535,64,We Are the Champion,Queen,,1977,UK,EMI,,,04854XqcfCY
+536,64,白いボールのファンタジー,トランザム,,1978,JPN,ビクター,,ちょっぴりタイムマシン,
+537,65,雪風,スピッツ,,2015,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,KqJBpisB7lE
+538,65,新宝島,サカナクション,,2015,JPN,NF Records,,,
+539,65,HONEY DANCE II,KENZI,,1986,JPN,Trip Roll Records,,,
+540,65,グロリアス,GLAY,,1996,JPN,プラチナム・レコード,佐久間正英,,6ewGwJ63Nr4
+541,65,2月/February,bloodthirsty butchers,,1996,JPN,ベルウッド,,,
+542,65,バナナフィッシュの浜辺と黒い虹 with Aimer,Galileo Galilei,,2014,JPN,SME,,,iubApGbf04I
+543,65,アニー,ズーカラデル,,2017,JPN,ズーカラデル,,,zSPEdE651y0
+544,65,メロディ,sleepy.ab,,2006,JPN,WESS RECORDS,,ちょっぴりタイムマシン,_zrGfQjA830
+545,66,トゲトゲの木,スピッツ,,1990,JPN,ミストラル,,漫遊前の一曲,
+546,66,遺憾に存じます,植木等,うえきひとし,1965,JPN,東芝レコード,,,
+547,66,青森ロック大臣,人間椅子,にんげんいす,1993,JPN,メルダック,,,
+548,66,So Said Kayo,The Hit Parade,,1992,UK,ポリスター,Raymond Watts,,
+549,66,ふやけた■■,ヒカシュー,,1980,JPN,イーストワールド,近田春夫,,
+550,66,スナッキーで踊ろう,海道はじめ,かいどうはじめ,1968,JPN,コロムビア,,,
+551,66,デタラメ・マザコン・チェリーボーイ 〜for the movie〜,金玉ガールズ,きんたまがーるす,2008,JPN,デスレコーズ,,,
+552,66,ナントカナルシング,ふなっしー,,2016,JPN,ユニバーサル,,,K7lW2MCYUc4
+553,66,レッドdeハッスル,大西ユカリと新世界,おおにしゆかりとしんせかい,2003,JPN,SUBSTANCE RECORDS,,ちょっぴりタイムマシン,
+554,67,花の写真,スピッツ,,2010,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,
+555,67,Blowin' Free,Wishbone Ash,,1972,UK,Decca/MCA,Derek Lawrence,,hGXW5d5f-LM
+556,67,Throw Down the Sword,Wishbone Ash,,1972,UK,Decca/MCA,Derek Lawrence,,w-BHRQrMglo
+557,67,Blind Eye,Wishbone Ash,,1971,UK,Decca/MCA,Derek Lawrence,,n5MBHX5kqk4
+558,67,Silver Shoes,Wishbone Ash,,1974,UK,MCA,Bill Szymczyk,,mPsmBLqJoHE
+559,67,Reason to Believe,Wishbone Ash,,2011,UK,ZYX,,,7tr5sddw-bs
+560,67,機械じかけのラム,四人囃子,よにんばやし,1978,JPN,SEE-SAW,,ちょっぴりタイムマシン,
+561,68,空も飛べるはず,スピッツ,,1994,JPN,ポリドール,笹路正徳,漫遊前の一曲,h-kQw4JqCHE
+562,68,TRAIN-TRAIN,THE BLUE HEARTS,,1988,JPN,メルダック,,,
+563,68,Monkey Magic,ゴダイゴ,,1978,JPN,日本コロムビア,,,
+564,68,生きてるって言ってみろ,友川かずき,ともかわかずき,1974,JPN,EXPRESS,,,
+565,68,STARS,ORIGINAL LOVE,,1999,JPN,ポニーキャニオン,,,
+566,68,ヒトリセカイ,10-FEET,,2017,JPN,ユニバーサル,,,rxjKJ_2T9DY
+567,68,ESCAPE,MOON CHILD,,1997,JPN,avex trax,今井裕,ちょっぴりタイムマシン,
+568,69,俺の赤い星,スピッツ,,2000,JPN,ポリドール,石田小吉,漫遊前の一曲,
+569,69,いい女,ウルフルズ,,1992,JPN,東芝EMI,,,zBLqikQOeho
+570,69,君のため,THE BLUE HEARTS,,1987,JPN,メルダック,,,
+571,69,Funny Face,The Muffs,,1995,US,Reprise Records,,,r0IQDTxQACI
+572,69,青すぎる空,eastern youth,,1997,JPN,トイズファクトリー,,,
+573,69,Let Me Roll It,Paul McCartney & Wings,,1974,UK,Apple,,,ly_G9QBX_f0
+574,69,あなた,小坂明子,こさかあきこ,1973,JPN,Elektra,,ちょっぴりタイムマシン,
+575,70,野生のポルカ,スピッツ,,2013,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,
+576,70,It's Time to Party,Andrew W.K.,,2001,US,Island,,,xemLz_fR1Ac
+577,70,Cum On Feel the Noize,Quiet Riot,,1983,US,Pasha,Spencer Proffer,,ZxgMGk9JPVA
+578,70,Semi-Charmed Life,Third Eye Blind,,1997,US,Elektra,Eric Valentine,,beINamVRGy4
+579,70,In Love with a Camera,The Struts,,2018,UK,Interscope Records,Butch Walker,,Jp41GPXCQ8k
+580,70,Parchman Farm,Cactus,,1970,US,Atco,,,mC_cvsR8wPg
+581,70,Still Waiting,SUM41,,2002,CAN,Aquarius,Greig Nori,,qO-mSLxih-c
+582,70,The Art of Losing,American Hi-Fi,,2003,US,Island,Nick Launay,,JGZODoQq2Xg
+583,70,太陽のラ,PoPoyans,,2008,JPN,Good Records,鈴木惣一朗,ちょっぴりタイムマシン,
+584,71,みそか,スピッツ,,2005,JPN,ユニバーサル,亀田誠治,漫遊前の一曲,
+585,71,MONSTER DANCE,KEYTALK,,2015,JPN,Getting Better,,,N39glrfql0I
+586,71,A A U U O O O,the telephones,,2011,JPN,ユニバーサル,,,utqODi4MDbA
+587,71,オトナノススメ,怒髪天,どはつてん,2009,JPN,インペリアル,,,m8ZIW_01zdo
+588,71,あつまれ!パーティーピーポー,ヤバイTシャツ屋さん,,2016,JPN,ユニバーサルシグマ,,,J5oytYDMWHA
+589,71,Run Run Run,OKAMOTO’S,,2010,JPN,アリオラジャパン,,,
+590,71,C.M.C.,THE ROOSTERS,,1983,JPN,日本コロムビア,,,
+591,71,Deadend Street GIRL,堀ちえみ,ほりちえみ,1985,JPN,キャニオンレコード,,ちょっぴりタイムマシン,
+592,72,たまご,スピッツ,,1994,JPN,ポリドール,笹路正徳,漫遊前の一曲,
+593,72,Hang On to Yourself,David Bowie,,1972,UK,RCA,,,7XtF5jITGh4
+594,72,Moonage Daydream,David Bowie,,1972,UK,RCA,,,RPUAldgS7Sg
+595,72,Life on Mars,David Bowie,,1971,UK,RCA,Ken Scott,,AZKcl4-tcuo
+596,72,Star,David Bowie,,1972,UK,RCA,,,u0iF_fJ8yf4
+597,72,Growing Up And I'm Fine,Mick Ronson,,1974,UK,RCA,,,
+598,72,Hangin’ Round,Lou Reed,,1972,UK,RCA,Mick Ronson,,zEgV0kTikfI
+599,72,We Hate It When Our Friends Become Successful,Morrissey,,1992,UK,HMV,Mick Ronson,,1nRRu9WAA-k
+600,72,涙 風にたくして,つじあやの,,2000,JPN,SPEEDSTAR RECORDS,,ちょっぴりタイムマシン,
+601,73,優しいあの子,スピッツ,,2019,JPN,ユニバーサル,,漫遊前の一曲,
+602,73,Woman,John Lennon,,1981,UK,Geffen,,,ZhfWiU8wGCc
+603,73,Sweet Lorraine,Uriah Heep,,1972,UK,Bronze,,,haUiygv5QQg
+604,73,モニカ,吉川晃司,きっかわこうじ,1984,JPN,SMS Records,,,
+605,73,Pinball Wizard,The Who,,1969,UK,Decca Records,Kit Lambert,,-J03yCE15rg
+606,73,Venus,Shocking Blue,,1969,NED,Pink Elephant,,,Dg-UiOSjJeM
+607,73,RADIO MAGIC,EARTHSHAKER,,1984,JPN,NEXUS,,,n9syF5d_pyQ
+608,73,クライマクス,TAMTAM,,2014,JPN,SPEEDSTAR RECORDS,,ちょっぴりタイムマシン,LAqVYrPqOM8
+609,74,魔女旅に出る,スピッツ,,1991,JPN,ポリドール,高橋信彦,漫遊前の一曲,
+610,74,Beltane Walk,T. Rex,,1970,UK,Fly,Tony Visconti,,
+611,74,Then,Yes,,1970,UK,Atlantic,,,W10qiXqlvo8
+612,74,Ebony Eyes,Bob Welch,,1977,US,Capitol Records,Carter,,xvuccbcCcsI
+613,74,Silver,Echo & the Bunnymen,,1984,UK,Korova,,,sQ_QRK_iWrk
+614,74,私の楽団（オーケストラ）,ZELDA,,1983,JPN,日本フォノグラム,白井良明,,
+615,74,"Tonight, Tonight",The Smashing Pumpkins,,1996,US,Virgin,,,NOG3eus4ZSo
+616,74,誰のために,赤い鳥,あかいとり,1970,JPN,LIBERTY,村井邦彦,ちょっぴりタイムマシン,
+617,75,センチメンタル,スピッツ,,1998,JPN,ポリドール,,漫遊前の一曲,
+618,75,Nights in White Satin,The Moody Blues,,1967,UK,Deram,Tony Clarke,,DMGJxCnhz28
+619,75,Never Say Die,Black Sabbath,,1978,UK,Vertigo,,,2Q6gPouusHs
+620,75,Confusion,Electric Light Orchestra,,1979,UK,Jet,,,1jUvhJ_Tgzw
+621,75,Prayer of a Realist,GBH,,1982,UK,Clay,,,rDAH_yluHCg
+622,75,The Reflex,Duran Duran,,1984,UK,EMI,,,J5ebkj9x5Ko
+623,75,Rain of Crystal Spires,Felt,,1986,UK,Creation,,,om9lXoFuY2k
+624,75,Season Train,RAZZ MA TAZZ,,1995,JPN,フォーライフ,,ちょっぴりタイムマシン,
+625,76,悪役,スピッツ,,2019,JPN,ユニバーサル,,漫遊前の一曲,
+626,76,あぁ青春,GO!GO!7188,,2001,JPN,東芝EMI,,,
+627,76,小さな恋のうた,MONGOL800,,2001,JPN,HIGH WAVE,,,u8EkSB9zSpE
+628,76,雨は毛布のように,キリンジ,,2001,JPN,ワーナーミュージック・ジャパン,冨田恵一,,HWyyxJoZHyY
+629,76,Light Your Fire,RIZE,,2001,JPN,エピックレコードジャパン,,,SxsT-D_eEFg
+630,76,生活,Syrup16g,,2001,JPN,DAIZAWA RECORDS,,,
+631,76,Volcanic Girl,Buffalo Daughter,,2001,JPN,東芝EMI,,,
+632,76,cream soda,SUPERCAR,,1997,JPN,エピックレコードジャパン,,ちょっぴりタイムマシン,
+633,77,優しいあの子,スピッツ,,2019,JPN,ユニバーサル,,漫遊前の一曲,
+634,77,Kill the King,Rainbow,,1978,UK,Polydor,Martin Birch,,zEaxow3PoO0
+635,77,Love Pains,Ronnie Dio & The Prophets,,1962,UK,Atlantic,,,ObasKE0PLTA
+636,77,Good Time Music,Elf,,1975,UK,MGM,Roger Glover,,
+637,77,Man on the Silver Mountain,Rainbow,,1975,UK,Oyster,,,ORnvO1VyYMk
+638,77,Neon Knights,Black Sabbath,,1980,UK,Vertigo,Martin Birch,,LJOvZ2AyDnA
+639,77,Caught In The Middle,Dio,,1983,UK,Warner Bros.,,,qsskD9g_grg
+640,77,愛をちょうだい,VANILLA,,1995,JPN,ソニー・ミュージックレコーズ,,ちょっぴりタイムマシン,
+641,78,トンビ飛べなかった,スピッツ,,1991,JPN,ポリドール,,漫遊前の一曲,
+642,78,東京少年,GOING STEADY,,2001,JPN,Libra,,,
+643,78,The Golden Age of Rock 'n' Roll,Mott the Hoople,,1974,UK,CBS,,,yTAKizVFonE
+644,78,Down on the Street,The Stooges,,1970,US,Elektra,Don Gallucci,,fkC2lauXCKU
+645,78,ロックンロールは鳴り止まないっ,神聖かまってちゃん,しんせいかまってちゃん,2010,JPN,PERFECT MUSIC,,,NXT9rz8BErk
+646,78,Big Green Country,Neil Young,,1995,US,Reprise Records,,,MUpuXlkOo7o
+647,78,Cast Away Your Chains,Electric Sun,,1981,GER,BRAIN-Metronome,,,K0y09nzj8Cc
+648,78,WINTER SUN（明日になれば僕等はきっと生まれ変わる）,ヒートウェイヴ,,1994,JPN,Epic,,ちょっぴりタイムマシン,

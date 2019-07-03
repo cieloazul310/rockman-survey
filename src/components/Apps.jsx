@@ -1,12 +1,10 @@
 import React from 'react';
 import { Grid, Row, Col, Tab } from 'react-bootstrap';
+import { AutoSizer } from 'react-virtualized';
 
 import Playlist from './Panes/Playlist';
 import Programs from './Panes/Programs';
-import Artists from './Panes/Artists';
-import Countries from './Panes/Countries';
-import Corners from './Panes/Corners';
-import Favs from './Panes/Favs';
+import FilterPanel from './Panes/FilterPanel';
 import About from './Panes/About';
 import AdBox from './AdBox';
 
@@ -15,69 +13,77 @@ const AppForMobile = ({
   playlistLength,
   removeSelected,
   selected,
-  favs,
   fillScale,
-  onFavClick,
   tributes,
   onFilterSelected
 }) => (
   <Row>
     <Col xs={12} smHidden mdHidden lgHidden>
-      <Tab.Content animation>
-        <Tab.Pane eventKey={1}>
-          <Playlist
-            playlist={playlist}
-            playlistLength={playlistLength}
-            removeSelected={removeSelected}
-            selected={selected}
-            favs={favs}
-            fillScale={fillScale}
-            onFavClick={onFavClick}
-            dataForLegends={tributes.nation}
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.1}>
-          <Programs
-            data={tributes.week}
-            selected={selected}
-            onFilterSelected={onFilterSelected}
-            isMobile
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.2}>
-          <Artists
-            data={tributes.artist}
-            selected={selected}
-            onFilterSelected={onFilterSelected}
-            fillScale={fillScale}
-            isMobile
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.3}>
-          <Countries
-            data={tributes.nation}
-            selected={selected}
-            onFilterSelected={onFilterSelected}
-            fillScale={fillScale}
-            isMobile
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.4}>
-          <Corners
-            data={tributes.corner}
-            selected={selected}
-            onFilterSelected={onFilterSelected}
-            isMobile
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.5}>
-          <Favs />
-        </Tab.Pane>
-        <Tab.Pane eventKey={3}>
-          <About />
-        </Tab.Pane>
-      </Tab.Content>
-      <AdBox />
+      <AutoSizer disableHeight>
+        {({ width }) => (
+          <div style={{ width }}>
+            <Tab.Content animation>
+              <Tab.Pane eventKey={1}>
+                <Playlist
+                  playlist={playlist}
+                  playlistLength={playlistLength}
+                  removeSelected={removeSelected}
+                  selected={selected}
+                  fillScale={fillScale}
+                  dataForLegends={tributes.nation}
+                  width={width}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={2.1}>
+                <Programs
+                  data={tributes.week}
+                  selected={selected}
+                  onFilterSelected={onFilterSelected}
+                  isMobile
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={2.2}>
+                <FilterPanel
+                  title="アーティスト"
+                  data={tributes.artist}
+                  width={width}
+                  label="artist"
+                  selected={selected}
+                  onClick={onFilterSelected}
+                  color={d => fillScale(d.nation)}
+                  isMobile
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={2.3}>
+                <FilterPanel
+                  title="国・地域"
+                  data={tributes.nation}
+                  width={width}
+                  label="nation"
+                  selected={selected}
+                  onClick={onFilterSelected}
+                  color={d => fillScale(d.nation)}
+                  isMobile
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={2.4}>
+                <FilterPanel
+                  title="コーナー"
+                  data={tributes.corner}
+                  width={width}
+                  label="corner"
+                  selected={selected}
+                  onClick={onFilterSelected}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={3}>
+                <About />
+              </Tab.Pane>
+            </Tab.Content>
+            {width ? <AdBox /> : null}
+          </div>
+        )}
+      </AutoSizer>
     </Col>
   </Row>
 );
@@ -86,66 +92,82 @@ const AppForDesktop = ({
   playlist,
   playlistLength,
   selected,
-  favs,
   fillScale,
-  onFavClick,
   tributes,
   onFilterSelected,
   removeSelected
 }) => (
   <Row>
     <Col sm={8}>
-      <Playlist
-        playlist={playlist}
-        playlistLength={playlistLength}
-        selected={selected}
-        favs={favs}
-        fillScale={fillScale}
-        onFavClick={onFavClick}
-        dataForLegends={tributes.nation}
-        removeSelected={removeSelected}
-      />
+      <AutoSizer disableHeight>
+        {({ width }) => {
+          console.log(width);
+          return (
+            <Playlist
+              width={width}
+              playlist={playlist}
+              playlistLength={playlistLength}
+              selected={selected}
+              fillScale={fillScale}
+              dataForLegends={tributes.nation}
+              removeSelected={removeSelected}
+            />
+          );
+        }}
+      </AutoSizer>
     </Col>
     <Col sm={4}>
-      <Tab.Content animation>
-        <Tab.Pane eventKey={2.1}>
-          <Programs
-            data={tributes.week}
-            selected={selected}
-            onFilterSelected={onFilterSelected}
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.2}>
-          <Artists
-            data={tributes.artist}
-            selected={selected}
-            onFilterSelected={onFilterSelected}
-            fillScale={fillScale}
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.3}>
-          <Countries
-            data={tributes.nation}
-            selected={selected}
-            onFilterSelected={onFilterSelected}
-            fillScale={fillScale}
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.4}>
-          <Corners
-            data={tributes.corner}
-            selected={selected}
-            onFilterSelected={onFilterSelected}
-          />
-        </Tab.Pane>
-        <Tab.Pane eventKey={2.5}>
-          <Favs />
-        </Tab.Pane>
-        <Tab.Pane eventKey={3}>
-          <About />
-        </Tab.Pane>
-      </Tab.Content>
-      <AdBox />
+      <AutoSizer disableHeight>
+        {({ width }) => (
+          <div style={{ width }}>
+            <Tab.Content animation>
+              <Tab.Pane eventKey={2.1}>
+                <Programs
+                  data={tributes.week}
+                  selected={selected}
+                  onFilterSelected={onFilterSelected}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={2.2}>
+                <FilterPanel
+                  title="アーティスト"
+                  data={tributes.artist}
+                  width={width}
+                  label="artist"
+                  selected={selected}
+                  onClick={onFilterSelected}
+                  color={d => fillScale(d.nation)}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={2.3}>
+                <FilterPanel
+                  title="国・地域"
+                  data={tributes.nation}
+                  width={width}
+                  label="nation"
+                  selected={selected}
+                  onClick={onFilterSelected}
+                  color={d => fillScale(d.nation)}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={2.4}>
+                <FilterPanel
+                  title="コーナー"
+                  data={tributes.corner}
+                  width={width}
+                  label="corner"
+                  selected={selected}
+                  onClick={onFilterSelected}
+                />
+              </Tab.Pane>
+              <Tab.Pane eventKey={3}>
+                <About />
+              </Tab.Pane>
+            </Tab.Content>
+            {width ? <AdBox /> : null}
+          </div>
+        )}
+      </AutoSizer>
     </Col>
   </Row>
 );
