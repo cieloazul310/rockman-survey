@@ -43,7 +43,8 @@ const NavForMobile = ({ tributes, showFavs, state, playlistLength }) => (
           <MenuItem eventKey={2.4}>
             {'コーナー'} <Badge>{tributes.corner.length}</Badge>
           </MenuItem>
-          <MenuItem
+          {/*
+            <MenuItem
             active={state.tab === 2.5}
             onClick={() => {
               showFavs();
@@ -55,6 +56,7 @@ const NavForMobile = ({ tributes, showFavs, state, playlistLength }) => (
             />
             {' favs'} <Badge>{state.favs.length}</Badge>
           </MenuItem>
+        */}
           <MenuItem eventKey={3}>{'About'}</MenuItem>
         </NavDropdown>
       </Nav>
@@ -88,6 +90,7 @@ const NavForDesktop = ({ tributes, showFavs, state, playlistLength }) => (
         <NavItem eventKey={2.4} className="nav-larger">
           {'コーナー'} <Badge>{tributes.corner.length}</Badge>
         </NavItem>
+        {/*
         <NavItem
           className="nav-larger"
           active={state.tab === 2.5}
@@ -101,6 +104,7 @@ const NavForDesktop = ({ tributes, showFavs, state, playlistLength }) => (
           />
           {' favs'} <Badge>{state.favs.length}</Badge>
         </NavItem>
+        */}
       </Nav>
     </Col>
   </div>

@@ -1,7 +1,7 @@
 span.fav {
   color: silver;
   cursor: pointer;
-  transition: color .25s;
+  transition: color 0.25s;
 }
 
 span.fav:hover {
@@ -13,12 +13,52 @@ span.fav.active {
 }
 
 span.playtube {
-  margin-right: .8em;
+  margin-right: 0.8em;
 }
 
 .playlist-item-buttons {
   position: absolute;
-  right: .8em;
-  top: .8em;
+  right: 0.8em;
+  top: 0.8em;
   font-size: 120%;
+}
+
+.playlist-item {
+  padding: 0.5em 1em;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+}
+
+.playlist-item-header {
+  font-size: 80%;
+}
+
+.playlist-item-main {
+  display: flex;
+  font-weight: 600;
+  flex: 1;
+  align-items: center;
+}
+.playlist-item-main-xs {
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+}
+
+.playlist-item-blank {
+  flex: 1;
+}
+
+.playlist-item-main-xs > .playlist-item-name {
+  padding: 0.5em 0;
+}
+
+.playlist-item-artist {
+  font-style: italic;
+  font-size: 92%;
+}
+.playlist-item-main-xs > .playlist-item-artist {
+  text-align: end;
 }
