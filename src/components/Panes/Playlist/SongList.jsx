@@ -27,7 +27,11 @@ const Fav = ({ d, onFavClick }) => (
 const PlayTube = ({ d }) => (
   <span className="playtube">
     <a
-      href={`https://youtu.be/${d.youtube}`}
+      href={
+        /*`https://youtu.be/${d.youtube}`*/ `https://www.youtube.com/watch?v=${
+          d.youtube
+        }&list=PLGqFsFmePh4xxQjnjCpBLYsJY-VecUzdJ`
+      }
       target="_blank"
       rel="noopener noreferrer"
       title="Watch on Youtube"
